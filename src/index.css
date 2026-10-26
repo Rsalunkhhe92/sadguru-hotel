@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest-50: #effaf3;
+  --color-forest-100: #d8f0e0;
+  --color-forest-200: #b3e0c4;
+  --color-forest-300: #7fc79e;
+  --color-forest-400: #4aa874;
+  --color-forest-500: #2a8a56;
+  --color-forest-600: #1d6e43;
+  --color-forest-700: #175837;
+  --color-forest-800: #13462d;
+  --color-forest-900: #0f3a26;
+  --color-forest-950: #072115;
+
+  --color-saffron-50: #fff8ed;
+  --color-saffron-100: #ffefd3;
+  --color-saffron-200: #fedba6;
+  --color-saffron-300: #fdc06e;
+  --color-saffron-400: #fb9a34;
+  --color-saffron-500: #f97f0f;
+  --color-saffron-600: #ea6305;
+  --color-saffron-700: #c24a07;
+  --color-saffron-800: #9a3b0e;
+
+  --color-cream: #fbf6ec;
+  --color-cream-dark: #f3e9d4;
+  --color-gold: #c9972b;
+  --color-ink: #1c1a17;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Mukta", system-ui, sans-serif;
+  --font-marathi: "Tiro Devanagari Marathi", "Mukta", serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-cream text-ink font-sans antialiased;
+  }
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-saffron-500;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* Subtle rangoli-dot texture */
+.bg-rangoli {
+  background-image: radial-gradient(circle at 1px 1px, rgb(201 151 43 / 0.18) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+.bg-rangoli-dark {
+  background-image: radial-gradient(circle at 1px 1px, rgb(253 192 110 / 0.12) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+/* Toran (scalloped festive border) */
+.toran {
+  height: 14px;
+  background:
+    radial-gradient(circle at 10px 0, var(--color-saffron-500) 7px, transparent 7.5px) 0 0 / 20px 14px repeat-x,
+    linear-gradient(var(--color-forest-800), var(--color-forest-800)) 0 0 / 100% 3px no-repeat;
+}
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+  .print-break-avoid { break-inside: avoid; }
+}
